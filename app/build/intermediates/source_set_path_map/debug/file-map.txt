@@ -1,0 +1,53 @@
+com.geobeats.app-lifecycle-process-2.7.0-0 C:\Users\barri\.gradle\caches\transforms-3\02c80c4488c2586b5042d55e62c06bf6\transformed\lifecycle-process-2.7.0\res
+com.geobeats.app-material3-1.1.2-1 C:\Users\barri\.gradle\caches\transforms-3\07b4aec806e39bf98baf5988668a7190\transformed\material3-1.1.2\res
+com.geobeats.app-ui-tooling-data-release-2 C:\Users\barri\.gradle\caches\transforms-3\09df67dd3e8c527359b350153d116b1d\transformed\ui-tooling-data-release\res
+com.geobeats.app-lifecycle-livedata-2.7.0-3 C:\Users\barri\.gradle\caches\transforms-3\0e2a67a87da4b1aa80247d1c290057c3\transformed\lifecycle-livedata-2.7.0\res
+com.geobeats.app-savedstate-1.2.1-4 C:\Users\barri\.gradle\caches\transforms-3\1361f1ec6e6399bbda1eaebfe6c4d08d\transformed\savedstate-1.2.1\res
+com.geobeats.app-animation-release-5 C:\Users\barri\.gradle\caches\transforms-3\1d986fa0efef8a6edfc148ce1eaf0f08\transformed\animation-release\res
+com.geobeats.app-ui-test-manifest-1.5.1-6 C:\Users\barri\.gradle\caches\transforms-3\30bc7957797cba446bf63516263e21ba\transformed\ui-test-manifest-1.5.1\res
+com.geobeats.app-foundation-release-7 C:\Users\barri\.gradle\caches\transforms-3\3119220c28f23d1084b9f81f2faa374d\transformed\foundation-release\res
+com.geobeats.app-annotation-experimental-1.3.0-8 C:\Users\barri\.gradle\caches\transforms-3\48494c5ff1323372b07f7617e7138350\transformed\annotation-experimental-1.3.0\res
+com.geobeats.app-savedstate-ktx-1.2.1-9 C:\Users\barri\.gradle\caches\transforms-3\4d52d8c1756013c07bea35915d8d21e2\transformed\savedstate-ktx-1.2.1\res
+com.geobeats.app-activity-ktx-1.8.2-10 C:\Users\barri\.gradle\caches\transforms-3\5d040eb9df06b543c627da2cd747d6d6\transformed\activity-ktx-1.8.2\res
+com.geobeats.app-lifecycle-viewmodel-ktx-2.7.0-11 C:\Users\barri\.gradle\caches\transforms-3\5fa3ec51ee51b4f2cda2e3b5156169c5\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.geobeats.app-ui-text-release-12 C:\Users\barri\.gradle\caches\transforms-3\71c8089403d77b6343128b5a352891a3\transformed\ui-text-release\res
+com.geobeats.app-material-ripple-release-13 C:\Users\barri\.gradle\caches\transforms-3\7375aa9eeec46e734c14e704f63ce2c2\transformed\material-ripple-release\res
+com.geobeats.app-lifecycle-viewmodel-2.7.0-14 C:\Users\barri\.gradle\caches\transforms-3\7c2233234534ad8390ebfee5f568be5a\transformed\lifecycle-viewmodel-2.7.0\res
+com.geobeats.app-ui-unit-release-15 C:\Users\barri\.gradle\caches\transforms-3\7e1a94fe9423a7f1eea7f0cf412a3e10\transformed\ui-unit-release\res
+com.geobeats.app-profileinstaller-1.3.0-16 C:\Users\barri\.gradle\caches\transforms-3\83ffde6a4690bac3785f0618dc09190a\transformed\profileinstaller-1.3.0\res
+com.geobeats.app-lifecycle-livedata-core-2.7.0-17 C:\Users\barri\.gradle\caches\transforms-3\89f2d3fb50fa8ec53f55bfa7f4692640\transformed\lifecycle-livedata-core-2.7.0\res
+com.geobeats.app-lifecycle-viewmodel-savedstate-2.7.0-18 C:\Users\barri\.gradle\caches\transforms-3\8c87c6521740602a1b1ffdaefbafdcc4\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.geobeats.app-material-release-19 C:\Users\barri\.gradle\caches\transforms-3\8e58d07f213d088857ff947d3cc79680\transformed\material-release\res
+com.geobeats.app-play-services-maps-18.2.0-20 C:\Users\barri\.gradle\caches\transforms-3\92538e9adb00cabc05fdac880a6b5fd7\transformed\play-services-maps-18.2.0\res
+com.geobeats.app-ui-tooling-preview-release-21 C:\Users\barri\.gradle\caches\transforms-3\956e0f41f845c68745e0eba0230ef1c3\transformed\ui-tooling-preview-release\res
+com.geobeats.app-ui-geometry-release-22 C:\Users\barri\.gradle\caches\transforms-3\9ab097dca80e0ed590881aae1b94f088\transformed\ui-geometry-release\res
+com.geobeats.app-core-runtime-2.2.0-23 C:\Users\barri\.gradle\caches\transforms-3\9b094d962b44dc1b20b83fc470aa55a6\transformed\core-runtime-2.2.0\res
+com.geobeats.app-ui-util-release-24 C:\Users\barri\.gradle\caches\transforms-3\a01c954f4871fb542a9495d0b2318eec\transformed\ui-util-release\res
+com.geobeats.app-ui-graphics-release-25 C:\Users\barri\.gradle\caches\transforms-3\a4a30494b4c770c7b97cfd243c0bf89c\transformed\ui-graphics-release\res
+com.geobeats.app-runtime-saveable-release-26 C:\Users\barri\.gradle\caches\transforms-3\a742c1a19dcd000f5bac6d7be4cc87d0\transformed\runtime-saveable-release\res
+com.geobeats.app-lifecycle-livedata-core-ktx-2.7.0-27 C:\Users\barri\.gradle\caches\transforms-3\ac6cd327209df0f03b16d4fa121ffbee\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.geobeats.app-activity-compose-1.8.2-28 C:\Users\barri\.gradle\caches\transforms-3\b212bd7292d8408bb7751f8b1fa57a8d\transformed\activity-compose-1.8.2\res
+com.geobeats.app-ui-tooling-release-29 C:\Users\barri\.gradle\caches\transforms-3\b21fe84ee32513c35049e42330f9141a\transformed\ui-tooling-release\res
+com.geobeats.app-coordinatorlayout-1.0.0-30 C:\Users\barri\.gradle\caches\transforms-3\ba1a25f55a549bf3ec7c824120ecbf66\transformed\coordinatorlayout-1.0.0\res
+com.geobeats.app-emoji2-1.4.0-31 C:\Users\barri\.gradle\caches\transforms-3\bf08a12de230651323f4035e383f839c\transformed\emoji2-1.4.0\res
+com.geobeats.app-runtime-release-32 C:\Users\barri\.gradle\caches\transforms-3\bfb6400d0c1895f102a47d6fca557e14\transformed\runtime-release\res
+com.geobeats.app-startup-runtime-1.1.1-33 C:\Users\barri\.gradle\caches\transforms-3\c5535a1e2448256a259c5484d07af61a\transformed\startup-runtime-1.1.1\res
+com.geobeats.app-activity-1.8.2-34 C:\Users\barri\.gradle\caches\transforms-3\c5ccea68e23e4ecf01e2aecd2369d37f\transformed\activity-1.8.2\res
+com.geobeats.app-foundation-layout-release-35 C:\Users\barri\.gradle\caches\transforms-3\cc7cf71fdcc6af58d99a818a58ded651\transformed\foundation-layout-release\res
+com.geobeats.app-material-icons-core-release-36 C:\Users\barri\.gradle\caches\transforms-3\d51303d7187004316fea311699c53b2b\transformed\material-icons-core-release\res
+com.geobeats.app-animation-core-release-37 C:\Users\barri\.gradle\caches\transforms-3\d6269af4e6a39cc8a22dbade88efd51c\transformed\animation-core-release\res
+com.geobeats.app-core-1.12.0-38 C:\Users\barri\.gradle\caches\transforms-3\d69f5f1729922d281060b7db2684aa6d\transformed\core-1.12.0\res
+com.geobeats.app-ui-release-39 C:\Users\barri\.gradle\caches\transforms-3\dc952b5f7ad72470bdd1f32db81b3498\transformed\ui-release\res
+com.geobeats.app-play-services-basement-18.1.0-40 C:\Users\barri\.gradle\caches\transforms-3\deaa7088102c927290ce90d0f477d385\transformed\play-services-basement-18.1.0\res
+com.geobeats.app-lifecycle-runtime-2.7.0-41 C:\Users\barri\.gradle\caches\transforms-3\e3a2c3ef0e0da855fbd83dcfaebb34e0\transformed\lifecycle-runtime-2.7.0\res
+com.geobeats.app-lifecycle-runtime-ktx-2.7.0-42 C:\Users\barri\.gradle\caches\transforms-3\e660deae0129244fcd6df7130308d866\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.geobeats.app-maps-compose-4.3.0-43 C:\Users\barri\.gradle\caches\transforms-3\e9e555dfd69684d0d32dc5f689d44c8f\transformed\maps-compose-4.3.0\res
+com.geobeats.app-core-ktx-1.12.0-44 C:\Users\barri\.gradle\caches\transforms-3\eb3dd9a4569ece7f4313a246baf641ef\transformed\core-ktx-1.12.0\res
+com.geobeats.app-play-services-base-18.1.0-45 C:\Users\barri\.gradle\caches\transforms-3\f3ac57329d65db64f8b95eb5fe9ab489\transformed\play-services-base-18.1.0\res
+com.geobeats.app-customview-poolingcontainer-1.0.0-46 C:\Users\barri\.gradle\caches\transforms-3\feddbba54eaec721e8225beaf6718c3a\transformed\customview-poolingcontainer-1.0.0\res
+com.geobeats.app-resValues-47 E:\Semestre 3\Requerimientos de Software\Tareas\Tarea 3\app\build\generated\res\resValues\debug
+com.geobeats.app-packageDebugResources-48 E:\Semestre 3\Requerimientos de Software\Tareas\Tarea 3\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.geobeats.app-packageDebugResources-49 E:\Semestre 3\Requerimientos de Software\Tareas\Tarea 3\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.geobeats.app-merged_res-50 E:\Semestre 3\Requerimientos de Software\Tareas\Tarea 3\app\build\intermediates\merged_res\debug
+com.geobeats.app-debug-51 E:\Semestre 3\Requerimientos de Software\Tareas\Tarea 3\app\src\debug\res
+com.geobeats.app-main-52 E:\Semestre 3\Requerimientos de Software\Tareas\Tarea 3\app\src\main\res

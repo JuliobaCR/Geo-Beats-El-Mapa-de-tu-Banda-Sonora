@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Geo-Beats</string>
+    <style name="Theme.GeoBeats" parent="Theme.Material3.DayNight.NoActionBar">
+        
+    </style>
+</resources>
