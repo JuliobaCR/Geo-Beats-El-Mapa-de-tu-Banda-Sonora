@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.geobeats.app.domain.models.PlaceLocation
 import com.geobeats.app.domain.repository.PlacesRepository
+import com.geobeats.app.future.spotify.SpotifyController
 import com.geobeats.app.services.distance.DistanceCalculator
 import com.geobeats.app.services.location.LocationService
 import kotlinx.coroutines.flow.*
@@ -22,7 +23,8 @@ data class MapUiState(
 class MapViewModel(
     private val locationService: LocationService,
     private val placesRepository: PlacesRepository,
-    private val distanceCalculator: DistanceCalculator
+    private val distanceCalculator: DistanceCalculator,
+    private val spotifyController: SpotifyController  // ← agregado
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MapUiState())
@@ -60,6 +62,12 @@ class MapViewModel(
                 place.latitude, place.longitude
             ) < 100.0
         }
+
+        // Solo abre Spotify si el lugar cercano cambió
+        if (nearby != null && nearby.name != _uiState.value.nearbyPlaceName) {
+            spotifyController.playPlaylist(nearby.spotifyPlaylistId)
+        }
+
         _uiState.update { it.copy(nearbyPlaceName = nearby?.name) }
     }
 
@@ -80,7 +88,7 @@ class MapViewModel(
                 place.latitude, place.longitude
             )
         } else null
-        
+
         _uiState.update { it.copy(selectedPlace = place, distanceToSelectedPlace = distance) }
     }
 
@@ -92,5 +100,9 @@ class MapViewModel(
         viewModelScope.launch {
             placesRepository.addPlace(place)
         }
+    }
+
+    fun playSpotifyPlaylist(playlistId: String) {
+        spotifyController.playPlaylist(playlistId)
     }
 }

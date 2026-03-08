@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.geobeats.app.data.datasource.LocalPlacesDataSource
 import com.geobeats.app.data.repository.PlacesRepositoryImpl
+import com.geobeats.app.future.spotify.SpotifyControllerImpl
 import com.geobeats.app.presentation.navigation.NavGraph
 import com.geobeats.app.presentation.viewmodel.MapViewModel
 import com.geobeats.app.services.distance.DistanceCalculator
@@ -20,12 +21,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Basic Dependency Injection (could be replaced with Hilt/Koin)
         val locationService = LocationService(this)
         val dataSource = LocalPlacesDataSource()
         val repository = PlacesRepositoryImpl(dataSource)
         val distanceCalculator = DistanceCalculator()
-        val viewModel = MapViewModel(locationService, repository, distanceCalculator)
+        val spotifyController = SpotifyControllerImpl(this)  // ← agregar esto
+        val viewModel = MapViewModel(locationService, repository, distanceCalculator, spotifyController)
 
         setContent {
             GeoBeatsTheme {

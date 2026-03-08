@@ -216,7 +216,10 @@ fun UserMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
             ) {
                 PlaceDetailContent(
                     place = uiState.selectedPlace!!,
-                    distance = uiState.distanceToSelectedPlace
+                    distance = uiState.distanceToSelectedPlace,
+                    onPlayPlaylist = { playlistId ->
+                        viewModel.playSpotifyPlaylist(playlistId)
+                    }
                 )
             }
         }
@@ -224,7 +227,7 @@ fun UserMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
 }
 
 @Composable
-fun PlaceDetailContent(place: PlaceLocation, distance: Double?) {
+fun PlaceDetailContent(place: PlaceLocation, distance: Double?, onPlayPlaylist: (String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -273,14 +276,14 @@ fun PlaceDetailContent(place: PlaceLocation, distance: Double?) {
         )
         
         Spacer(modifier = Modifier.height(32.dp))
-        
+
         AppButton(
             text = "Reproducir Playlist",
-            onClick = { /* Spotify implementation */ }
+            onClick = { onPlayPlaylist(place.spotifyPlaylistId) }
         )
         
         Text(
-            text = "Integración con Spotify próximamente",
+            text = "Abre Spotify automáticamente",
             modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.labelSmall,
