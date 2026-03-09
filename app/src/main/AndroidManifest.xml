@@ -29,11 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <queries>
-            <package android:name="com.spotify.music" />
-        </queries>
-
     </application>
+
+    <queries>
+        <package android:name="com.spotify.music" />
+    </queries>
 
 </manifest>
