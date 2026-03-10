@@ -16,7 +16,7 @@ data class MapUiState(
     val places: List<PlaceLocation> = emptyList(),
     val selectedPlace: PlaceLocation? = null,
     val distanceToSelectedPlace: Double? = null,
-    val nearbyPlaceName: String? = null,
+    val nearbyPlace: PlaceLocation? = null,
     val error: String? = null
 )
 
@@ -24,7 +24,7 @@ class MapViewModel(
     private val locationService: LocationService,
     private val placesRepository: PlacesRepository,
     private val distanceCalculator: DistanceCalculator,
-    private val spotifyController: SpotifyController  // ← agregado
+    private val spotifyController: SpotifyController
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MapUiState())
@@ -60,15 +60,16 @@ class MapViewModel(
             distanceCalculator.calculateDistanceMeters(
                 location.latitude, location.longitude,
                 place.latitude, place.longitude
-            ) < 100.0
+            ) <= 100.0
         }
 
-        // Solo abre Spotify si el lugar cercano cambió
-        if (nearby != null && nearby.name != _uiState.value.nearbyPlaceName) {
+        if (nearby != null && nearby.id != _uiState.value.nearbyPlace?.id) {
+            // New place detected within 100m
+            _uiState.update { it.copy(nearbyPlace = nearby, selectedPlace = nearby) }
             spotifyController.playPlaylist(nearby.spotifyPlaylistId)
+        } else if (nearby == null && _uiState.value.nearbyPlace != null) {
+            _uiState.update { it.copy(nearbyPlace = null) }
         }
-
-        _uiState.update { it.copy(nearbyPlaceName = nearby?.name) }
     }
 
     private fun updateDistanceToSelected(location: Location) {
@@ -99,6 +100,18 @@ class MapViewModel(
     fun addPlace(place: PlaceLocation) {
         viewModelScope.launch {
             placesRepository.addPlace(place)
+        }
+    }
+
+    fun updatePlace(place: PlaceLocation) {
+        viewModelScope.launch {
+            placesRepository.updatePlace(place)
+        }
+    }
+
+    fun deletePlace(placeId: String) {
+        viewModelScope.launch {
+            placesRepository.deletePlace(placeId)
         }
     }
 

@@ -4,15 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.geobeats.app.presentation.view.DeveloperMapScreen
-import com.geobeats.app.presentation.view.ModeSelectionScreen
-import com.geobeats.app.presentation.view.SplashScreen
-import com.geobeats.app.presentation.view.UserMapScreen
+import com.geobeats.app.presentation.view.*
 import com.geobeats.app.presentation.viewmodel.MapViewModel
 
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
     object ModeSelection : Screen("mode_selection")
+    object Login : Screen("login")
     object UserMap : Screen("user_map")
     object DeveloperMap : Screen("developer_map")
 }
@@ -36,7 +34,17 @@ fun NavGraph(
         composable(Screen.ModeSelection.route) {
             ModeSelectionScreen(
                 onUserModeSelected = { navController.navigate(Screen.UserMap.route) },
-                onDevModeSelected = { navController.navigate(Screen.DeveloperMap.route) }
+                onDevModeSelected = { navController.navigate(Screen.Login.route) }
+            )
+        }
+        composable(Screen.Login.route) {
+            LoginScreen(
+                onLoginSuccess = {
+                    navController.navigate(Screen.DeveloperMap.route) {
+                        popUpTo(Screen.Login.route) { inclusive = true }
+                    }
+                },
+                onBack = { navController.popBackStack() }
             )
         }
         composable(Screen.UserMap.route) {

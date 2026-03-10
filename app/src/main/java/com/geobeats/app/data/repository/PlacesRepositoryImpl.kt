@@ -15,4 +15,12 @@ class PlacesRepositoryImpl(
     override suspend fun addPlace(place: PlaceLocation) {
         dataSource.addPlace(place)
     }
+
+    override suspend fun updatePlace(place: PlaceLocation) {
+        dataSource.updatePlace(place)
+    }
+
+    override suspend fun deletePlace(placeId: String) {
+        dataSource.deletePlace(placeId)
+    }
 }

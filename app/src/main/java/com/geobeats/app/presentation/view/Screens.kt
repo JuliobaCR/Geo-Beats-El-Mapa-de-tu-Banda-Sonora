@@ -2,10 +2,14 @@ package com.geobeats.app.presentation.view
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,11 +20,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.geobeats.app.domain.models.PlaceLocation
 import com.geobeats.app.presentation.components.AppButton
@@ -31,8 +38,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.util.UUID
 
 @Composable
@@ -130,9 +135,64 @@ fun ModeSelectionScreen(
         
         ModeSelectorCard(
             title = "Modo Desarrollador",
-            description = "Agrega puntos al mapa con playlists.",
+            description = "Agrega y gestiona puntos del mapa.",
             icon = Icons.Default.Build,
             onClick = onDevModeSelected
+        )
+    }
+}
+
+@Composable
+fun LoginScreen(onLoginSuccess: () -> Unit, onBack: () -> Unit) {
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var error by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        IconButton(onClick = onBack, modifier = Modifier.align(Alignment.Start)) {
+            Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+        }
+        
+        Text("Acceso Desarrollador", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.height(32.dp))
+        
+        OutlinedTextField(
+            value = username,
+            onValueChange = { username = it; error = false },
+            label = { Text("Usuario") },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        OutlinedTextField(
+            value = password,
+            onValueChange = { password = it; error = false },
+            label = { Text("Contraseña") },
+            visualTransformation = PasswordVisualTransformation(),
+            modifier = Modifier.fillMaxWidth()
+        )
+        
+        if (error) {
+            Text("Credenciales incorrectas", color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(top = 8.dp))
+        }
+        
+        Spacer(modifier = Modifier.height(32.dp))
+        
+        AppButton(
+            text = "Entrar",
+            onClick = {
+                if (username == "admin" && password == "admin123") {
+                    onLoginSuccess()
+                } else {
+                    error = true
+                }
+            }
         )
     }
 }
@@ -144,6 +204,10 @@ fun UserMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
     val sheetState = rememberModalBottomSheetState()
     val context = LocalContext.current
     
+    val cameraPositionState = rememberCameraPositionState {
+        position = CameraPosition.fromLatLngZoom(LatLng(9.9333, -84.0833), 15f)
+    }
+
     var hasLocationPermission by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(
@@ -180,6 +244,7 @@ fun UserMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
             if (hasLocationPermission) {
                 GoogleMap(
                     modifier = Modifier.fillMaxSize(),
+                    cameraPositionState = cameraPositionState,
                     properties = MapProperties(isMyLocationEnabled = true),
                     uiSettings = MapUiSettings(myLocationButtonEnabled = true)
                 ) {
@@ -216,10 +281,7 @@ fun UserMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
             ) {
                 PlaceDetailContent(
                     place = uiState.selectedPlace!!,
-                    distance = uiState.distanceToSelectedPlace,
-                    onPlayPlaylist = { playlistId ->
-                        viewModel.playSpotifyPlaylist(playlistId)
-                    }
+                    distance = uiState.distanceToSelectedPlace
                 )
             }
         }
@@ -227,7 +289,7 @@ fun UserMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
 }
 
 @Composable
-fun PlaceDetailContent(place: PlaceLocation, distance: Double?, onPlayPlaylist: (String) -> Unit) {
+fun PlaceDetailContent(place: PlaceLocation, distance: Double?) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -275,19 +337,43 @@ fun PlaceDetailContent(place: PlaceLocation, distance: Double?, onPlayPlaylist: 
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
-        AppButton(
-            text = "Reproducir Playlist",
-            onClick = { onPlayPlaylist(place.spotifyPlaylistId) }
-        )
-        
-        Text(
-            text = "Abre Spotify automáticamente",
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.outline
+        // Spotify Embed Player inside WebView
+        SpotifyEmbedPlayer(playlistId = place.spotifyPlaylistId)
+    }
+}
+
+@Composable
+fun SpotifyEmbedPlayer(playlistId: String) {
+    val embedUrl = "https://open.spotify.com/embed/playlist/$playlistId?utm_source=generator"
+    
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(160.dp)
+            .clip(RoundedCornerShape(12.dp))
+            .background(Color.Black)
+    ) {
+        AndroidView(
+            factory = { context ->
+                WebView(context).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                    webViewClient = WebViewClient()
+                    settings.javaScriptEnabled = true
+                    settings.domStorageEnabled = true
+                    loadUrl(embedUrl)
+                }
+            },
+            update = { webView ->
+                if (webView.url != embedUrl) {
+                    webView.loadUrl(embedUrl)
+                }
+            },
+            modifier = Modifier.fillMaxSize()
         )
     }
 }
@@ -296,8 +382,15 @@ fun PlaceDetailContent(place: PlaceLocation, distance: Double?, onPlayPlaylist: 
 @Composable
 fun DeveloperMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
     val uiState by viewModel.uiState.collectAsState()
-    var showForm by remember { mutableStateOf<LatLng?>(null) }
+    var showAddFormAt by remember { mutableStateOf<LatLng?>(null) }
+    var selectedPlaceForAction by remember { mutableStateOf<PlaceLocation?>(null) }
+    var showEditFormFor by remember { mutableStateOf<PlaceLocation?>(null) }
+    var showDeleteConfirmFor by remember { mutableStateOf<PlaceLocation?>(null) }
     
+    val cameraPositionState = rememberCameraPositionState {
+        position = CameraPosition.fromLatLngZoom(LatLng(9.9333, -84.0833), 15f)
+    }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -311,9 +404,9 @@ fun DeveloperMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
         },
         floatingActionButton = {
             ExtendedFloatingActionButton(
-                onClick = { /* Help or Info */ },
-                icon = { Icon(Icons.Default.AddLocation, null) },
-                text = { Text("Mantén presionado el mapa") },
+                onClick = { /* Help info toast or similar */ },
+                icon = { Icon(Icons.Default.Info, null) },
+                text = { Text("Mantén presionado el mapa para agregar") },
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 contentColor = MaterialTheme.colorScheme.onPrimaryContainer
             )
@@ -322,41 +415,128 @@ fun DeveloperMapScreen(viewModel: MapViewModel, onBack: () -> Unit) {
         Box(modifier = Modifier.padding(padding)) {
             GoogleMap(
                 modifier = Modifier.fillMaxSize(),
+                cameraPositionState = cameraPositionState,
                 onMapLongClick = { latLng ->
-                    showForm = latLng
+                    showAddFormAt = latLng
                 }
             ) {
                 uiState.places.forEach { place ->
                     Marker(
                         state = MarkerState(position = LatLng(place.latitude, place.longitude)),
                         title = place.name,
-                        icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)
+                        icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE),
+                        onClick = {
+                            selectedPlaceForAction = place
+                            true
+                        }
                     )
                 }
             }
         }
 
-        if (showForm != null) {
-            ModalBottomSheet(
-                onDismissRequest = { showForm = null }
-            ) {
-                AddPlaceForm(
-                    latLng = showForm!!,
+        // Menú de opciones para un punto seleccionado
+        if (selectedPlaceForAction != null) {
+            ModalBottomSheet(onDismissRequest = { selectedPlaceForAction = null }) {
+                Column(modifier = Modifier.padding(24.dp).padding(bottom = 32.dp)) {
+                    Text(
+                        text = selectedPlaceForAction!!.name,
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                    
+                    OutlinedButton(
+                        onClick = {
+                            showEditFormFor = selectedPlaceForAction
+                            selectedPlaceForAction = null
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Icon(Icons.Default.Edit, null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Modificar Detalles")
+                    }
+                    
+                    Spacer(modifier = Modifier.height(12.dp))
+                    
+                    Button(
+                        onClick = {
+                            showDeleteConfirmFor = selectedPlaceForAction
+                            selectedPlaceForAction = null
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
+                    ) {
+                        Icon(Icons.Default.Delete, null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Eliminar Punto")
+                    }
+                }
+            }
+        }
+
+        // Formulario para AGREGAR
+        if (showAddFormAt != null) {
+            ModalBottomSheet(onDismissRequest = { showAddFormAt = null }) {
+                PlaceForm(
+                    latLng = showAddFormAt!!,
                     onSave = { newPlace ->
                         viewModel.addPlace(newPlace)
-                        showForm = null
+                        showAddFormAt = null
                     }
                 )
             }
+        }
+
+        // Formulario para EDITAR
+        if (showEditFormFor != null) {
+            ModalBottomSheet(onDismissRequest = { showEditFormFor = null }) {
+                PlaceForm(
+                    latLng = LatLng(showEditFormFor!!.latitude, showEditFormFor!!.longitude),
+                    initialPlace = showEditFormFor,
+                    onSave = { updatedPlace ->
+                        viewModel.updatePlace(updatedPlace)
+                        showEditFormFor = null
+                    }
+                )
+            }
+        }
+
+        // Confirmación de ELIMINAR
+        if (showDeleteConfirmFor != null) {
+            AlertDialog(
+                onDismissRequest = { showDeleteConfirmFor = null },
+                title = { Text("Eliminar Punto") },
+                text = { Text("¿Estás seguro que deseas eliminar '${showDeleteConfirmFor?.name}'? Esta acción no se puede deshacer.") },
+                confirmButton = {
+                    TextButton(onClick = {
+                        viewModel.deletePlace(showDeleteConfirmFor!!.id)
+                        showDeleteConfirmFor = null
+                    }) {
+                        Text("Eliminar", color = Color.Red)
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showDeleteConfirmFor = null }) {
+                        Text("Cancelar")
+                    }
+                }
+            )
         }
     }
 }
 
 @Composable
-fun AddPlaceForm(latLng: LatLng, onSave: (PlaceLocation) -> Unit) {
-    var name by remember { mutableStateOf("") }
-    var description by remember { mutableStateOf("") }
-    var playlistId by remember { mutableStateOf("") }
+fun PlaceForm(
+    latLng: LatLng, 
+    initialPlace: PlaceLocation? = null,
+    onSave: (PlaceLocation) -> Unit
+) {
+    var name by remember { mutableStateOf(initialPlace?.name ?: "") }
+    var description by remember { mutableStateOf(initialPlace?.description ?: "") }
+    var playlistId by remember { mutableStateOf(initialPlace?.spotifyPlaylistId ?: "") }
 
     Column(
         modifier = Modifier
@@ -366,12 +546,12 @@ fun AddPlaceForm(latLng: LatLng, onSave: (PlaceLocation) -> Unit) {
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            text = "Nuevo Punto Musical",
+            text = if (initialPlace == null) "Nuevo Punto Musical" else "Modificar Punto",
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Lat: ${"%.5f".format(latLng.latitude)}, Lon: ${"%.5f".format(latLng.longitude)}",
+            text = "Coordenadas: ${"%.5f".format(latLng.latitude)}, ${"%.5f".format(latLng.longitude)}",
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.outline
         )
@@ -383,7 +563,8 @@ fun AddPlaceForm(latLng: LatLng, onSave: (PlaceLocation) -> Unit) {
             onValueChange = { name = it },
             label = { Text("Nombre del lugar") },
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp)
+            shape = RoundedCornerShape(12.dp),
+            singleLine = true
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -404,18 +585,19 @@ fun AddPlaceForm(latLng: LatLng, onSave: (PlaceLocation) -> Unit) {
             label = { Text("Spotify Playlist ID") },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            placeholder = { Text("Ej: 37i9dQZF1DXcBWIGoYBM3M") }
+            placeholder = { Text("Ej: 37i9dQZF1DXcBWIGoYBM3M") },
+            singleLine = true
         )
         
         Spacer(modifier = Modifier.height(32.dp))
         
         AppButton(
-            text = "Guardar Punto",
+            text = if (initialPlace == null) "Guardar Punto" else "Guardar Cambios",
             onClick = {
                 if (name.isNotBlank()) {
                     onSave(
                         PlaceLocation(
-                            id = UUID.randomUUID().toString(),
+                            id = initialPlace?.id ?: UUID.randomUUID().toString(),
                             name = name,
                             description = description,
                             latitude = latLng.latitude,

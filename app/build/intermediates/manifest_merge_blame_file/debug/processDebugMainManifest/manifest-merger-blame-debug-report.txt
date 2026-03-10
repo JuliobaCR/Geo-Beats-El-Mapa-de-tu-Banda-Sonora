@@ -9,35 +9,37 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-11-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:5:5-79
-11-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:5:22-76
+11-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:5:22-76
 12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-12-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:6:5-81
-12-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:6:22-78
+12-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:6:5-81
+12-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:6:22-78
 13    <uses-permission android:name="android.permission.INTERNET" />
-13-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:7:5-67
-13-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:7:22-64
+13-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:7:5-67
+13-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:7:22-64
 14
-15    <!-- Include required permissions for Google Maps API to run. -->
-16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
-16-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:22-76
-17
-18    <uses-feature
-18-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:26:5-28:35
-19        android:glEsVersion="0x00020000"
-19-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:27:9-41
-20        android:required="true" />
-20-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:28:9-32
-21
-22    <queries>
-22-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:30:5-34:15
+15    <queries>
+15-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:34:5-36:15
+16        <package android:name="com.spotify.music" />
+16-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:35:9-53
+16-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:35:18-50
+17        <!-- Needs to be explicitly declared on Android R+ -->
+18        <package android:name="com.google.android.apps.maps" />
+18-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:33:9-64
+18-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:33:18-61
+19    </queries>
+20
+21    <!-- Include required permissions for Google Maps API to run. -->
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
+22-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:22-76
 23
-24        <!-- Needs to be explicitly declared on Android R+ -->
-25        <package android:name="com.google.android.apps.maps" />
-25-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:33:9-64
-25-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:33:18-61
-26    </queries>
+24    <uses-feature
+24-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:26:5-28:35
+25        android:glEsVersion="0x00020000"
+25-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:27:9-41
+26        android:required="true" />
+26-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\barri\.gradle\caches\8.13\transforms\883ca5626ad917573c7eba9723dfa6f0\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:28:9-32
 27
 28    <permission
 28-->[androidx.core:core:1.13.0] C:\Users\barri\.gradle\caches\8.13\transforms\589d3ded570f40a970693b0ded2db440\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
@@ -51,49 +53,49 @@
 32-->[androidx.core:core:1.13.0] C:\Users\barri\.gradle\caches\8.13\transforms\589d3ded570f40a970693b0ded2db440\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 33
 34    <application
-34-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:9:5-32:19
+34-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:9:5-32:19
 35        android:allowBackup="true"
-35-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:10:9-35
+35-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:10:9-35
 36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 36-->[androidx.core:core:1.13.0] C:\Users\barri\.gradle\caches\8.13\transforms\589d3ded570f40a970693b0ded2db440\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 37        android:debuggable="true"
 38        android:extractNativeLibs="false"
 39        android:icon="@android:mipmap/sym_def_app_icon"
-39-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:11:9-56
+39-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:11:9-56
 40        android:label="@string/app_name"
-40-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:12:9-41
+40-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:12:9-41
 41        android:roundIcon="@android:mipmap/sym_def_app_icon"
-41-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:13:9-61
+41-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:13:9-61
 42        android:supportsRtl="true"
-42-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:14:9-35
+42-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:14:9-35
 43        android:testOnly="true"
 44        android:theme="@style/Theme.GeoBeats" >
-44-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:15:9-46
+44-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:15:9-46
 45        <meta-data
 46            android:name="com.google.android.geo.API_KEY"
-46-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:19:13-58
+46-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:19:13-58
 47            android:value="AIzaSyAemkHXooOq3prHKcPnyO6k8FxJ8XwMwj0" />
-47-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:20:13-44
+47-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:20:13-44
 48
 49        <activity
-49-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:22:9-31:20
+49-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:22:9-31:20
 50            android:name="com.geobeats.app.presentation.view.MainActivity"
-50-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:23:13-59
+50-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:23:13-59
 51            android:exported="true"
-51-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:24:13-36
+51-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:24:13-36
 52            android:label="@string/app_name"
-52-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:25:13-45
+52-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:25:13-45
 53            android:theme="@style/Theme.GeoBeats" >
-53-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:26:13-50
+53-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:26:13-50
 54            <intent-filter>
-54-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:27:13-30:29
+54-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:27:13-30:29
 55                <action android:name="android.intent.action.MAIN" />
-55-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:28:17-69
-55-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:28:25-66
+55-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:28:17-69
+55-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:28:25-66
 56
 57                <category android:name="android.intent.category.LAUNCHER" />
-57-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:29:17-77
-57-->C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\AndroidManifest.xml:29:27-74
+57-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:29:17-77
+57-->C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\AndroidManifest.xml:29:27-74
 58            </intent-filter>
 59        </activity>
 60        <!-- Needs to be explicitly declared on P+ -->
