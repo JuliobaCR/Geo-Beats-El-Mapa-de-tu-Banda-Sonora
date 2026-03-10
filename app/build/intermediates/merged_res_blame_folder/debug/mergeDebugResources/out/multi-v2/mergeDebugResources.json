@@ -7483,6 +7483,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\barri\\OneDrive\\Desktop\\Semestre 3\\REQES\\Tarea 3\\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "46",
+                        "endOffsets": "59"
+                    },
+                    "to": {
+                        "startLines": "2443",
+                        "startColumns": "4",
+                        "startOffsets": "164042",
+                        "endColumns": "46",
+                        "endOffsets": "164084"
+                    }
+                },
+                {
                     "source": "C:\\Users\\barri\\.gradle\\caches\\8.13\\transforms\\918408406ce84895bf3ed16918620cbd\\transformed\\jetified-appcompat-resources-1.7.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,18,24,34,50",
@@ -7499,25 +7516,6 @@
                         "endLines": "10817,10823,10833,14746,14750",
                         "endColumns": "24,24,24,24,24",
                         "endOffsets": "758543,758721,759005,901319,901446"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\barri\\OneDrive\\Desktop\\Tarea 3\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "191"
-                    },
-                    "to": {
-                        "startLines": "7520",
-                        "startColumns": "4",
-                        "startOffsets": "535031",
-                        "endLines": "7522",
-                        "endColumns": "12",
-                        "endOffsets": "535128"
                     }
                 },
                 {
@@ -7574,20 +7572,22 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\barri\\OneDrive\\Desktop\\Tarea 3\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\barri\\OneDrive\\Desktop\\Semestre 3\\REQES\\Tarea 3\\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
-                        "startLines": "1",
+                        "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "17",
-                        "endColumns": "46",
-                        "endOffsets": "59"
+                        "startOffsets": "57",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "191"
                     },
                     "to": {
-                        "startLines": "2443",
+                        "startLines": "7520",
                         "startColumns": "4",
-                        "startOffsets": "164042",
-                        "endColumns": "46",
-                        "endOffsets": "164084"
+                        "startOffsets": "535031",
+                        "endLines": "7522",
+                        "endColumns": "12",
+                        "endOffsets": "535128"
                     }
                 },
                 {

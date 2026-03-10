@@ -65,10 +65,10 @@ com.geobeats.app-jetified-material-icons-core-release-63 C:\Users\barri\.gradle\
 com.geobeats.app-jetified-ui-tooling-preview-release-64 C:\Users\barri\.gradle\caches\8.13\transforms\f99c94a320a2e3234bc4c24d27ec1833\transformed\jetified-ui-tooling-preview-release\res
 com.geobeats.app-transition-1.5.0-65 C:\Users\barri\.gradle\caches\8.13\transforms\fa1d18a7a7c142c6b676dd2b702be74a\transformed\transition-1.5.0\res
 com.geobeats.app-navigation-common-2.7.7-66 C:\Users\barri\.gradle\caches\8.13\transforms\fc13ec9002a8cea921bd86bc040aedc6\transformed\navigation-common-2.7.7\res
-com.geobeats.app-resValues-67 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\build\generated\res\resValues\debug
-com.geobeats.app-updated_navigation_xml-68 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\build\generated\updated_navigation_xml\debug
-com.geobeats.app-packageDebugResources-69 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.geobeats.app-packageDebugResources-70 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.geobeats.app-debug-71 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.geobeats.app-debug-72 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\debug\res
-com.geobeats.app-main-73 C:\Users\barri\OneDrive\Desktop\Tarea 3\app\src\main\res
+com.geobeats.app-resValues-67 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\build\generated\res\resValues\debug
+com.geobeats.app-updated_navigation_xml-68 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\build\generated\updated_navigation_xml\debug
+com.geobeats.app-packageDebugResources-69 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.geobeats.app-packageDebugResources-70 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.geobeats.app-debug-71 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.geobeats.app-debug-72 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\debug\res
+com.geobeats.app-main-73 C:\Users\barri\OneDrive\Desktop\Semestre 3\REQES\Tarea 3\Geo-Beats-El-Mapa-de-tu-Banda-Sonora\app\src\main\res
